@@ -1,16 +1,15 @@
 package com.carnava.android.core.navigation.fragment_controllers
 
 import android.os.Bundle
-import com.carnava.android.App
 import com.carnava.android.R
+import com.carnava.android.app.App
 import com.carnava.android.core.extensions.requireNavigationContextChanger
-import me.aartikov.alligator.AndroidNavigator
-import me.aartikov.alligator.DestinationType
-import me.aartikov.alligator.Screen
-import me.aartikov.alligator.TransitionType
 import com.carnava.android.core.navigation.Screens
 import com.carnava.android.core.navigation.controllers.NavigationControllerContract
 import com.carnava.android.core.ui.BaseFragment
+import me.aartikov.alligator.DestinationType
+import me.aartikov.alligator.Screen
+import me.aartikov.alligator.TransitionType
 
 class NavigationControllerFragment : BaseFragment(R.layout.fragment_navigation_controller),
     NavigationControllerContract {

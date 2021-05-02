@@ -1,25 +1,17 @@
 package com.carnava.android.app
 
 import android.content.DialogInterface
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.activity.viewModels
-import androidx.core.view.isVisible
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
-import androidx.lifecycle.ViewModelProvider
-import com.carnava.android.App
-import com.carnava.android.R
-import com.carnava.android.core.navigation.Screens
 import com.carnava.android.core.navigation.controllers.NavigationControllerContract
 import com.carnava.android.core.navigation.controllers.TabNavigationControllerContract
 import com.carnava.android.core.navigation.global.ContainerProvider
 import com.carnava.android.core.navigation.global.NavigationContextChangerProvider
 import com.carnava.android.core.navigation.global.NavigationScreenSwitcherProvider
-import me.aartikov.alligator.AndroidNavigator
 import me.aartikov.alligator.NavigationContext
 import me.aartikov.alligator.NavigationContextBinder
 import me.aartikov.alligator.navigationfactories.NavigationFactory

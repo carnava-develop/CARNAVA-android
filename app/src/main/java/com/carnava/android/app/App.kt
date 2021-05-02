@@ -1,4 +1,4 @@
-package com.carnava.android
+package com.carnava.android.app
 
 import android.app.Application
 import com.carnava.android.core.navigation.AppNavigationFactory

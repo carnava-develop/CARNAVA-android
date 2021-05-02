@@ -2,19 +2,18 @@ package com.carnava.android.core.navigation.fragment_controllers
 
 import android.os.Bundle
 import android.view.View
-import com.carnava.android.App
 import com.carnava.android.R
+import com.carnava.android.app.App
 import com.carnava.android.core.extensions.requireNavigationContextChanger
+import com.carnava.android.core.navigation.Screens
+import com.carnava.android.core.navigation.controllers.TabNavigationControllerContract
+import com.carnava.android.core.ui.BaseFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import me.aartikov.alligator.AndroidNavigator
 import me.aartikov.alligator.Screen
 import me.aartikov.alligator.ScreenResolver
 import me.aartikov.alligator.navigationfactories.NavigationFactory
 import me.aartikov.alligator.screenswitchers.FragmentScreenSwitcher
 import me.aartikov.alligator.screenswitchers.ScreenSwitcher
-import com.carnava.android.core.navigation.Screens
-import com.carnava.android.core.navigation.controllers.TabNavigationControllerContract
-import com.carnava.android.core.ui.BaseFragment
 
 class TabNavigationControllerFragment : BaseFragment(R.layout.fragment_tab_navigation_controller),
     TabNavigationControllerContract {
