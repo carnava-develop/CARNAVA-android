@@ -52,7 +52,7 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.2.0")
     implementation("com.google.android.material:material:1.3.0")
 
-    // Tools Navigation
+    // Tool Navigation
     val alligator = "4.1.0"
     implementation("com.github.aartikov.Alligator:alligator:$alligator")
     kapt("com.github.aartikov.Alligator:alligator-compiler:$alligator")
@@ -60,6 +60,9 @@ dependencies {
     val room = "2.3.0-beta03"
     implementation("androidx.room:room-ktx:$room")
     kapt("androidx.room:room-compiler:$room")
+    // Tool Prefs
+    implementation("com.chibatching.kotpref:kotpref:2.13.1")
+
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
