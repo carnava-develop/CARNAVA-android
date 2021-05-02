@@ -22,7 +22,10 @@ android {
         getByName("release") {
             applicationIdSuffix = ".release"
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -53,6 +56,10 @@ dependencies {
     val alligator = "4.1.0"
     implementation("com.github.aartikov.Alligator:alligator:$alligator")
     kapt("com.github.aartikov.Alligator:alligator-compiler:$alligator")
+    // Tool Database
+    val room = "2.3.0-beta03"
+    implementation("androidx.room:room-ktx:$room")
+    kapt("androidx.room:room-compiler:$room")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.2")

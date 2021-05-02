@@ -2,8 +2,8 @@ package com.carnava.android.core.navigation.fragment_controllers
 
 import android.os.Bundle
 import android.view.View
+import com.carnava.android.App
 import com.carnava.android.R
-import com.carnava.android.app.App
 import com.carnava.android.core.extensions.requireNavigationContextChanger
 import com.carnava.android.core.navigation.Screens
 import com.carnava.android.core.navigation.controllers.TabNavigationControllerContract

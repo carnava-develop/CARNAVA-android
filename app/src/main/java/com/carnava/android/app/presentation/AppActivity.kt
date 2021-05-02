@@ -1,4 +1,4 @@
-package com.carnava.android.app
+package com.carnava.android.app.presentation
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
+import com.carnava.android.App
 import com.carnava.android.core.navigation.controllers.NavigationControllerContract
 import com.carnava.android.core.navigation.controllers.TabNavigationControllerContract
 import com.carnava.android.core.navigation.global.ContainerProvider

@@ -1,9 +1,9 @@
 package com.carnava.android.core.navigation
 
-import com.carnava.android.app.AppActivity
-import me.aartikov.alligator.navigationfactories.RegistryNavigationFactory
+import com.carnava.android.app.presentation.AppActivity
 import com.carnava.android.core.navigation.fragment_controllers.NavigationControllerFragment
 import com.carnava.android.core.navigation.fragment_controllers.TabNavigationControllerFragment
+import me.aartikov.alligator.navigationfactories.RegistryNavigationFactory
 
 class AppNavigationFactory : RegistryNavigationFactory() {
     init {
