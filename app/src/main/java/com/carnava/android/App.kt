@@ -32,10 +32,10 @@ class App : Application() {
     companion object {
         lateinit var navigator: AndroidNavigator
 
-        lateinit var appDatabase: AppDatabase
-        lateinit var userDao: UserDao
+        private lateinit var appDatabase: AppDatabase
+        private lateinit var userDao: UserDao
 
-        lateinit var authPrefs: AuthPrefs
+        private lateinit var authPrefs: AuthPrefs
 
         lateinit var userRepository: UserRepository
         lateinit var authRepository: AuthRepository
