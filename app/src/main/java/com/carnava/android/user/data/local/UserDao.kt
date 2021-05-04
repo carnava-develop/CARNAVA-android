@@ -9,10 +9,10 @@ import com.carnava.android.user.data.model.UserEntity
 @Dao
 interface UserDao {
 
-    @Query("SELECT * FROM user")
+    @Query("SELECT * FROM users")
     suspend fun loadAllUsers(): List<UserEntity>
 
-    @Query("SELECT * FROM user WHERE email = :email")
+    @Query("SELECT * FROM users WHERE email = :email")
     suspend fun loadUser(email: String): UserEntity
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

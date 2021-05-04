@@ -19,6 +19,13 @@ android {
     }
 
     buildTypes {
+        getByName("debug") {
+            applicationIdSuffix = ".debug"
+            isDebuggable = true
+            isTestCoverageEnabled = true
+            buildConfigField("String", "APP_DATABASE_NAME", "\"app_database\"")
+        }
+
         getByName("release") {
             applicationIdSuffix = ".release"
             isMinifyEnabled = false
@@ -26,6 +33,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "APP_DATABASE_NAME", "\"app_database\"")
         }
     }
 
