@@ -1,10 +1,10 @@
 package com.carnava.android.product.domain.mappers
 
-import com.carnava.android.product.data.models.ProductEntity
+import com.carnava.android.cart.data.models.CartProductEntity
 import com.carnava.android.product.domain.models.ProductModel
 
-fun ProductEntity.toProductModel() = ProductModel(id, title, description, price)
-fun List<ProductEntity>.toProductsModels() = map { it.toProductModel() }
+fun CartProductEntity.toProductModel() = ProductModel(id, title, description, price)
+fun List<CartProductEntity>.toProductsModels() = map { it.toProductModel() }
 
-fun ProductModel.toProductEntity() = ProductEntity(id, title, description, price)
-fun List<ProductModel>.toProductsEntities() = map { it.toProductEntity() }
+fun ProductModel.toCartProductEntity() = CartProductEntity(id, title, description, price)
+fun List<ProductModel>.toCartProductsEntities() = map { it.toCartProductEntity() }
