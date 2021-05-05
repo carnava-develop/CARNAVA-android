@@ -6,5 +6,10 @@ import com.carnava.android.product.domain.models.ProductModel
 fun FavoriteProductEntity.toProductModel() = ProductModel(id, title, description, price)
 fun List<FavoriteProductEntity>.toProductsModels() = map { it.toProductModel() }
 
-fun ProductModel.toFavoriteProductEntity() = FavoriteProductEntity(id, title, description, price)
-fun List<ProductModel>.toFavoritesProductsEntities() = map { it.toFavoriteProductEntity() }
+ЦШfun ProductModel.toFavoriteProductEntity(email: String): FavoriteProductEntity {
+    return FavoriteProductEntity(id, id, email, title, description, price)
+}
+
+fun List<ProductModel>.toFavoritesProductsEntities(email: String): List<FavoriteProductEntity> {
+    return map { it.toFavoriteProductEntity(email) }
+}
