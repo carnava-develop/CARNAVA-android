@@ -11,7 +11,7 @@ class FavoriteRepositoryImpl(
     private val authPrefs: AuthPrefs
 ) : FavoriteRepository {
     override suspend fun saveFavorite(product: ProductModel) {
-        favoriteDao.saveProduct(product.toFavoriteProductEntity())
+        favoriteDao.saveProduct(product.toFavoriteProductEntity(authPrefs.email))
     }
 
     override suspend fun deleteFavorite(product: ProductModel) {

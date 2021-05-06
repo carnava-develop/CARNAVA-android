@@ -7,7 +7,7 @@ fun FavoriteProductEntity.toProductModel() = ProductModel(id, title, description
 fun List<FavoriteProductEntity>.toProductsModels() = map { it.toProductModel() }
 
 fun ProductModel.toFavoriteProductEntity(email: String): FavoriteProductEntity {
-    return FavoriteProductEntity(id, id, email, title, description, price)
+    return FavoriteProductEntity(0, id, email, title, description, price)
 }
 
 fun List<ProductModel>.toFavoritesProductsEntities(email: String): List<FavoriteProductEntity> {
