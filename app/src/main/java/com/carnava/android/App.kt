@@ -13,6 +13,7 @@ import com.carnava.android.core.navigation.AppNavigationFactory
 import com.carnava.android.favorite.data.local.FavoriteDao
 import com.carnava.android.favorite.data.repositories.FavoriteRepositoryImpl
 import com.carnava.android.favorite.domain.repositories.FavoriteRepository
+import com.carnava.android.product.data.local.ProductDao
 import com.carnava.android.user.data.local.UserDao
 import com.carnava.android.user.data.repositories.UserRepositoryImpl
 import com.carnava.android.user.domain.repositories.UserRepository
@@ -27,6 +28,7 @@ class App : Application() {
         appDatabase = Room.databaseBuilder(this, AppDatabase::class.java, "app_database")
             .build()
         userDao = appDatabase.userDao()
+        productDao = appDatabase.productDao()
         cartDao = appDatabase.cartDao()
         favoriteDao = appDatabase.favoriteDao()
 
@@ -35,8 +37,8 @@ class App : Application() {
 
         userRepository = UserRepositoryImpl(userDao)
         authRepository = AuthRepositoryImpl(authPrefs)
-        cartRepository = CartRepositoryImpl()
-        favoriteRepository = FavoriteRepositoryImpl()
+        cartRepository = CartRepositoryImpl(cartDao, authPrefs)
+        favoriteRepository = FavoriteRepositoryImpl(favoriteDao, authPrefs)
     }
 
     companion object {
@@ -44,6 +46,7 @@ class App : Application() {
 
         private lateinit var appDatabase: AppDatabase
         private lateinit var userDao: UserDao
+        private lateinit var productDao: ProductDao
         private lateinit var cartDao: CartDao
         private lateinit var favoriteDao: FavoriteDao
 

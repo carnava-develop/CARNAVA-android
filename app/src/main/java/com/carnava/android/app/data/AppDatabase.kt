@@ -6,12 +6,15 @@ import com.carnava.android.cart.data.local.CartDao
 import com.carnava.android.cart.data.models.CartProductEntity
 import com.carnava.android.favorite.data.local.FavoriteDao
 import com.carnava.android.favorite.data.models.FavoriteProductEntity
+import com.carnava.android.product.data.local.ProductDao
+import com.carnava.android.product.data.models.ProductEntity
 import com.carnava.android.user.data.local.UserDao
 import com.carnava.android.user.data.model.UserEntity
 
 @Database(
     entities = [
         UserEntity::class,
+        ProductEntity::class,
         CartProductEntity::class,
         FavoriteProductEntity::class
     ],
@@ -20,6 +23,7 @@ import com.carnava.android.user.data.model.UserEntity
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
+    abstract fun productDao(): ProductDao
     abstract fun cartDao(): CartDao
     abstract fun favoriteDao(): FavoriteDao
 }
