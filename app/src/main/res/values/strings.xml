@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CARNAVA</string>
+    <string name="sign_in_email">Email</string>
+    <string name="sign_in_password">Пароль</string>
+    <string name="sign_in">Войти</string>
+    <string name="sign_in_create_account">Создать учетную запись</string>
 </resources>
