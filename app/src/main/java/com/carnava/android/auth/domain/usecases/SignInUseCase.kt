@@ -3,14 +3,13 @@ package com.carnava.android.auth.domain.usecases
 import com.carnava.android.App
 
 class SignInUseCase {
-    suspend operator fun invoke(email: String, password: String): Boolean {
+    suspend operator fun invoke(email: String, password: String) {
         val user = App.userRepository.loadUser(email)
-        return if (email == user.email && password == user.password) {
+        if (email == user.email && password == user.password) {
             App.authRepository.saveEmail(user.email)
             App.authRepository.savePassword(user.password)
-            true
         } else {
-            false
+            throw IllegalArgumentException("Email or password wrong")
         }
     }
 }
