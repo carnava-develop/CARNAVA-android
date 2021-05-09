@@ -4,4 +4,7 @@
     <string name="sign_in_password">Пароль</string>
     <string name="sign_in">Войти</string>
     <string name="sign_in_create_account">Создать учетную запись</string>
+    <string name="sign_up_what_is_your_name">Как к вам обращаться?</string>
+    <string name="sign_up_name">Имя:</string>
+    <string name="sign_up_registry">Зарегистрироваться</string>
 </resources>
