@@ -1,8 +1,10 @@
 package com.carnava.android.core.navigation.fragment_controllers
 
 import android.os.Bundle
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.FragmentContainerView
 import com.carnava.android.App
-import com.carnava.android.R
 import com.carnava.android.core.extensions.requireNavigationContextChanger
 import com.carnava.android.core.navigation.Screens
 import com.carnava.android.core.navigation.controllers.NavigationControllerContract
@@ -11,13 +13,23 @@ import me.aartikov.alligator.DestinationType
 import me.aartikov.alligator.Screen
 import me.aartikov.alligator.TransitionType
 
-class NavigationControllerFragment : BaseFragment(R.layout.fragment_navigation_controller),
+class NavigationControllerFragment : BaseFragment(),
     NavigationControllerContract {
 
     private val navigator = App.navigator
 
+    private val navigationContainer by lazy {
+        FragmentContainerView(requireContext()).apply {
+            id = View.generateViewId()
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT
+            )
+        }
+    }
+
     var countChildScreen = 0
-    override fun getContainerId(): Int = R.id.container_navigation_controller
+    override fun getContainerId(): Int = navigationContainer.id
     override fun canGoBack(): Boolean = countChildScreen > 1
     override fun onBackPressed() = navigator.goBack()
 
