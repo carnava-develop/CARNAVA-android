@@ -12,6 +12,7 @@ import com.carnava.android.core.extensions.requireNavigationContextChanger
 import com.carnava.android.core.navigation.Screens
 import com.carnava.android.core.ui.BaseFragment
 import com.carnava.android.databinding.FragmentProfileBinding
+import com.carnava.android.user.domain.usecases.LoadCurrentUserUseCase
 import kotlinx.coroutines.launch
 
 class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
@@ -21,22 +22,22 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
     override fun setupView(view: View) {
         bindging = FragmentProfileBinding.bind(view)
         with(bindging) {
+            lifecycleScope.launch {
+                val user = LoadCurrentUserUseCase().invoke()
+                emailProfileText.text = user.email
+                titleProfileLogo.text = user.name.first().toString()
+            }
+
             rateAppProfileContainer.setOnClickListener {
                 val packageName = requireContext().packageName
                 try {
-                    startActivity(
-                        Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse("market://details?id=$packageName")
-                        )
-                    )
+                    val uri = Uri.parse("market://details?id=$packageName")
+                    startActivity(Intent(Intent.ACTION_VIEW, uri))
                 } catch (e: ActivityNotFoundException) {
-                    startActivity(
-                        Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse("https://play.google.com/store/apps/details?id=$packageName")
-                        )
+                    val uri = Uri.parse(
+                        "https://play.google.com/store/apps/details?id=$packageName"
                     )
+                    startActivity(Intent(Intent.ACTION_VIEW, uri))
                 }
             }
             shareAppProfileContainer.setOnClickListener {

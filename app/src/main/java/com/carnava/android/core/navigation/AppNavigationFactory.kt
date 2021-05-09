@@ -5,6 +5,7 @@ import com.carnava.android.auth.presentation.sign_in.SignInFragment
 import com.carnava.android.auth.presentation.sign_up.SignUpDialog
 import com.carnava.android.core.navigation.fragment_controllers.NavigationControllerFragment
 import com.carnava.android.core.navigation.fragment_controllers.TabNavigationControllerFragment
+import com.carnava.android.user.presentation.profile.ProfileFragment
 import me.aartikov.alligator.navigationfactories.RegistryNavigationFactory
 
 class AppNavigationFactory : RegistryNavigationFactory() {
@@ -21,5 +22,6 @@ class AppNavigationFactory : RegistryNavigationFactory() {
 
         registerFragment(Screens.SignIn::class.java, SignInFragment::class.java)
         registerDialogFragment(Screens.SignUp::class.java, SignUpDialog::class.java)
+        registerFragment(Screens.Profile::class.java, ProfileFragment::class.java)
     }
 }
