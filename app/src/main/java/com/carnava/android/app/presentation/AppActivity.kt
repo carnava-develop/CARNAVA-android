@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
 import com.carnava.android.App
+import com.carnava.android.auth.domain.usecases.IsSignInUseCase
+import com.carnava.android.core.navigation.Screens
 import com.carnava.android.core.navigation.controllers.NavigationControllerContract
 import com.carnava.android.core.navigation.controllers.TabNavigationControllerContract
 import com.carnava.android.core.navigation.global.ContainerProvider
@@ -38,6 +40,10 @@ class AppActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(appContainer)
+        if (IsSignInUseCase().invoke()) {
+        } else {
+            App.navigator.goForward(Screens.SignIn)
+        }
     }
 
     override fun onResume() {

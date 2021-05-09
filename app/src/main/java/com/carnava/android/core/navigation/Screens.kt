@@ -19,4 +19,6 @@ object Screens {
     data class NavigationController(
         val screens: List<Screen>
     ) : Screen, Serializable
+
+    object SignIn : Screen, Serializable
 }
