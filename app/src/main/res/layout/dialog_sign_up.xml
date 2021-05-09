@@ -53,13 +53,14 @@
             tools:text="Чебурашка" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/sign_up_button"
             style="@style/AppWidget.ButtonAccent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/sign_up_registry"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:text="@string/sign_up_registry"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
