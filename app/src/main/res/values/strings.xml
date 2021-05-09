@@ -7,4 +7,7 @@
     <string name="sign_up_what_is_your_name">Как к вам обращаться?</string>
     <string name="sign_up_name">Имя:</string>
     <string name="sign_up_registry">Зарегистрироваться</string>
+    <string name="profile_rate_this_app">Оценить это приложение</string>
+    <string name="profile_share_app">Рекомендовать это приложение</string>
+    <string name="profile_logout">Выйти с аккаунта</string>
 </resources>
