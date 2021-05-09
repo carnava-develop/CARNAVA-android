@@ -28,7 +28,7 @@ class NavigationControllerFragment : BaseFragment(),
         }
     }
 
-    var countChildScreen = 0
+    private var countChildScreen = 0
     override fun getContainerId(): Int = navigationContainer.id
     override fun canGoBack(): Boolean = countChildScreen > 1
     override fun onBackPressed() = navigator.goBack()
