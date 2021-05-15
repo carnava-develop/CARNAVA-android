@@ -31,12 +31,12 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
             rateAppProfileContainer.setOnClickListener {
                 val packageName = requireContext().packageName
                 try {
-                    val uri = Uri.parse("market://details?id=$packageName")
+                    val link = "market://details?id=$packageName"
+                    val uri = Uri.parse(link)
                     startActivity(Intent(Intent.ACTION_VIEW, uri))
                 } catch (e: ActivityNotFoundException) {
-                    val uri = Uri.parse(
-                        "https://play.google.com/store/apps/details?id=$packageName"
-                    )
+                    val link = "https://play.google.com/store/apps/details?id=$packageName"
+                    val uri = Uri.parse(link)
                     startActivity(Intent(Intent.ACTION_VIEW, uri))
                 }
             }
