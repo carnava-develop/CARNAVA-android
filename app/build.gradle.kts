@@ -76,7 +76,8 @@ dependencies {
     kapt("androidx.room:room-compiler:$room")
     // Tool Prefs
     implementation("com.chibatching.kotpref:kotpref:2.13.1")
-
+    // Tool Log
+    implementation("com.jakewharton.timber:timber:4.7.1")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.2")

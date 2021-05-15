@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import com.carnava.android.core.utils.EventBus
 
 abstract class BaseFragment : Fragment {
     constructor(@LayoutRes layoutId: Int) : super(layoutId)
@@ -19,4 +20,9 @@ abstract class BaseFragment : Fragment {
     }
 
     open fun setupView(view: View) {}
+
+    override fun onDestroy() {
+        EventBus.removeEventListeners(this)
+        super.onDestroy()
+    }
 }

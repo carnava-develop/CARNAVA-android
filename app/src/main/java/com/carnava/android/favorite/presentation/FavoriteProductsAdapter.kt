@@ -11,7 +11,7 @@ import com.carnava.android.product.domain.models.ProductModel
 
 class FavoriteProductsAdapter(
     private val addToCartClickListener: (ProductModel) -> Unit,
-    private val favoriteClickListener: (ProductModel, Boolean) -> Unit
+    private val favoriteClickListener: (ProductModel) -> Unit
 ) : BaseListAdapter<ProductModel, FavoriteProductsAdapter.ProductViewHolder>(
     IdentificationDiffUtilCallback()
 ) {
@@ -28,7 +28,7 @@ class FavoriteProductsAdapter(
                     addToCartClickListener.invoke(currentItem)
                 }
                 favoriteItemProductImage.setOnClickListener {
-                    favoriteClickListener.invoke(currentItem, !currentItem.isFavorite)
+                    favoriteClickListener.invoke(currentItem)
                 }
             }
         }
@@ -38,10 +38,7 @@ class FavoriteProductsAdapter(
                 currentItem = item
                 titleItemProductText.text = item.title
                 Glide.with(ctx).load(item.image).into(imageItemProduct)
-                Glide.with(ctx).load(
-                    if (item.isFavorite) R.drawable.ic_favorite_active
-                    else R.drawable.ic_favorite_passive
-                ).into(favoriteItemProductImage)
+                Glide.with(ctx).load(R.drawable.ic_favorite_active).into(favoriteItemProductImage)
             }
         }
     }

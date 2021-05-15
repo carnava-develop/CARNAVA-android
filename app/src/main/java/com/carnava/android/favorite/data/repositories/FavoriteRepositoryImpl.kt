@@ -16,7 +16,7 @@ class FavoriteRepositoryImpl(
     }
 
     override suspend fun deleteFavorite(product: ProductModel) {
-        favoriteDao.deleteProduct(product.id, authPrefs.email)
+        favoriteDao.deleteProduct(product.identification, authPrefs.email)
     }
 
     override suspend fun loadProducts(): List<ProductModel> {

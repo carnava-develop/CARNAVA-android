@@ -10,6 +10,7 @@ import com.carnava.android.cart.data.local.CartDao
 import com.carnava.android.cart.data.repository.CartRepositoryImpl
 import com.carnava.android.cart.domain.repository.CartRepository
 import com.carnava.android.core.navigation.AppNavigationFactory
+import com.carnava.android.core.utils.EventBus
 import com.carnava.android.favorite.data.local.FavoriteDao
 import com.carnava.android.favorite.data.repositories.FavoriteRepositoryImpl
 import com.carnava.android.favorite.domain.repositories.FavoriteRepository
@@ -41,6 +42,7 @@ class App : Application() {
         Kotpref.init(this)
         authPrefs = AuthPrefs()
 
+        eventBus = EventBus()
         userRepository = UserRepositoryImpl(userDao)
         authRepository = AuthRepositoryImpl(authPrefs)
         productRepository = ProductRepositoryImpl(productDao)
@@ -61,6 +63,7 @@ class App : Application() {
 
         private lateinit var authPrefs: AuthPrefs
 
+        lateinit var eventBus: EventBus
         lateinit var userRepository: UserRepository
         lateinit var authRepository: AuthRepository
         lateinit var productRepository: ProductRepository
