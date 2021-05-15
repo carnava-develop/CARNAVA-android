@@ -14,5 +14,6 @@
     <string name="profile_rate_this_app">Оценить это приложение</string>
     <string name="profile_share_app">Рекомендовать это приложение</string>
     <string name="profile_logout">Выйти с аккаунта</string>
+    <string name="item_product_add_to_cart">Добавить в корзину</string>
 
 </resources>

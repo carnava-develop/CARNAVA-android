@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_item_product"
+    tools:layout_marginHorizontal="16dp"
+    tools:layout_marginTop="16dp">
+
+    <ImageView
+        android:id="@+id/image_item_product"
+        android:layout_width="114dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@drawable/bg_product_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/tools_image_sneakers" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_to_cart_item_product_button"
+        style="@style/Widget.App.ButtonAccent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="7dp"
+        android:layout_marginStart="7dp"
+        android:text="@string/item_product_add_to_cart"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/image_item_product"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_item_product" />
+
+
+    <TextView
+        android:id="@+id/title_item_product_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="9dp"
+        android:textColor="@color/text_black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_item_product"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Кеды зелёные, подошва белая, ещё звездочки по-краям.  " />
+
+    <ImageView
+        android:id="@+id/favorite_item_product_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:src="@drawable/ic_favorite_passive" />
+</androidx.constraintlayout.widget.ConstraintLayout>

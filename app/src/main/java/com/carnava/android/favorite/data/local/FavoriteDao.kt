@@ -9,6 +9,9 @@ import com.carnava.android.favorite.data.models.FavoriteProductEntity
 @Dao
 interface FavoriteDao {
 
+    @Query("SELECT * FROM favorites WHERE email_user = :emailUser ")
+    suspend fun loadProducts(emailUser: String): List<FavoriteProductEntity>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun saveProduct(productEntity: FavoriteProductEntity)
 

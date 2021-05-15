@@ -5,4 +5,5 @@ import com.carnava.android.product.domain.models.ProductModel
 interface FavoriteRepository {
     suspend fun saveFavorite(product: ProductModel)
     suspend fun deleteFavorite(product: ProductModel)
+    suspend fun loadProducts(): List<ProductModel>
 }

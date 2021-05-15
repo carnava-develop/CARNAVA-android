@@ -12,4 +12,6 @@
     <color name="bottom_navigation_background">@android:color/black</color>
     <color name="bottom_navigation_icon_tint_white">@android:color/white</color>
     <color name="bottom_navigation_icon_tint_gray">@android:color/darker_gray</color>
+
+    <color name="text_black">@android:color/black</color>
 </resources>

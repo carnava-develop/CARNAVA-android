@@ -4,6 +4,7 @@ import com.carnava.android.auth.data.local.AuthPrefs
 import com.carnava.android.favorite.data.local.FavoriteDao
 import com.carnava.android.favorite.domain.repositories.FavoriteRepository
 import com.carnava.android.product.domain.mappers.toFavoriteProductEntity
+import com.carnava.android.product.domain.mappers.toProductsModels
 import com.carnava.android.product.domain.models.ProductModel
 
 class FavoriteRepositoryImpl(
@@ -16,5 +17,9 @@ class FavoriteRepositoryImpl(
 
     override suspend fun deleteFavorite(product: ProductModel) {
         favoriteDao.deleteProduct(product.id, authPrefs.email)
+    }
+
+    override suspend fun loadProducts(): List<ProductModel> {
+        return favoriteDao.loadProducts(authPrefs.email).toProductsModels()
     }
 }
