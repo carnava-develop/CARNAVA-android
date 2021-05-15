@@ -20,4 +20,9 @@
         <item name="strokeColor">@android:color/black</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
+
+    <style name="Widget.App.BottomNavigationBar" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@color/bottom_navigation_selector</item>
+        <item name="labelVisibilityMode">unlabeled</item>
+    </style>
 </resources>
