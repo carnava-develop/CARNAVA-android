@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppWidget.ButtonAccent" parent="Widget.MaterialComponents.Button">
+    <style name="Widget.App.ButtonAccent" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@android:color/black</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="textAllCaps">false</item>
@@ -14,7 +14,7 @@
         <item name="android:insetRight">0dp</item>
     </style>
 
-    <style name="AppWidget.ButtonAccent2" parent="AppWidget.ButtonAccent">
+    <style name="Widget.App.ButtonAccent2" parent="Widget.App.ButtonAccent">
         <item name="backgroundTint">@android:color/white</item>
         <item name="strokeWidth">4dp</item>
         <item name="strokeColor">@android:color/black</item>

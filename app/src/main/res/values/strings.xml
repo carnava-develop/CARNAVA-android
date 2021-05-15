@@ -1,14 +1,18 @@
 <resources>
     <string name="app_name">CARNAVA</string>
+    <string name="error_fill_in_the_required_field">Заполните обязательное поле</string>
+
     <string name="sign_in_email">Email</string>
     <string name="sign_in_password">Пароль</string>
     <string name="sign_in">Войти</string>
     <string name="sign_in_create_account">Создать учетную запись</string>
+
     <string name="sign_up_what_is_your_name">Как к вам обращаться?</string>
     <string name="sign_up_name">Имя:</string>
     <string name="sign_up_registry">Зарегистрироваться</string>
+
     <string name="profile_rate_this_app">Оценить это приложение</string>
     <string name="profile_share_app">Рекомендовать это приложение</string>
     <string name="profile_logout">Выйти с аккаунта</string>
-    <string name="error_fill_in_the_required_field">Заполните обязательное поле</string>
+
 </resources>

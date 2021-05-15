@@ -71,7 +71,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/sign_in_button"
-        style="@style/AppWidget.ButtonAccent"
+        style="@style/Widget.App.ButtonAccent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -83,7 +83,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/sign_up_sign_in_button"
-        style="@style/AppWidget.ButtonAccent2"
+        style="@style/Widget.App.ButtonAccent2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
