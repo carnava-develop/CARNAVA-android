@@ -13,6 +13,4 @@ data class FavoriteProductEntity(
     @ColumnInfo(name = "title") override val title: String,
     @ColumnInfo(name = "image") override val image: Int,
     @ColumnInfo(name = "price") override val price: Int,
-    @ColumnInfo(name = "isCart") override val isCart: Boolean,
-    @ColumnInfo(name = "isFavorite") override val isFavorite: Boolean
-) : Product(identification, title, image, price, isCart, isFavorite)
+) : Product(identification, title, image, price)

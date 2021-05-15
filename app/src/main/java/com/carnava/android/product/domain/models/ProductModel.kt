@@ -5,6 +5,4 @@ data class ProductModel(
     override val title: String,
     override val image: Int,
     override val price: Int,
-    override val isCart: Boolean,
-    override val isFavorite: Boolean
-) : Product(identification, title, image, price, isCart, isFavorite)
+) : Product(identification, title, image, price)

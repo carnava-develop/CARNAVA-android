@@ -7,6 +7,4 @@ abstract class Product(
     open val title: String,
     open val image: Int,
     open val price: Int,
-    open val isCart: Boolean,
-    open val isFavorite: Boolean,
 ) : Identification
