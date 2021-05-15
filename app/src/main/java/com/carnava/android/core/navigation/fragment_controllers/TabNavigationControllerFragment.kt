@@ -19,8 +19,8 @@ class TabNavigationControllerFragment : BaseFragment(R.layout.fragment_tab_navig
     TabNavigationControllerContract {
 
     private val navigator = App.navigator
-    lateinit var screenResolver: ScreenResolver
-    lateinit var navigationFactory: NavigationFactory
+    private val screenResolver: ScreenResolver = App.screenResolver
+    private val navigationFactory: NavigationFactory = App.navigationFactory
 
     private val screenArgs by lazy { screenResolver.getScreen<Screens.TabNavigationController>(this) }
     private val menuId: Int by lazy { screenArgs.menuId }

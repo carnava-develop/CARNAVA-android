@@ -6,6 +6,7 @@ import androidx.lifecycle.lifecycleScope
 import com.carnava.android.App
 import com.carnava.android.R
 import com.carnava.android.auth.domain.usecases.SignUpUseCase
+import com.carnava.android.core.navigation.NavigationHelper
 import com.carnava.android.core.navigation.Screens
 import com.carnava.android.core.ui.BaseDialog
 import com.carnava.android.databinding.DialogSignUpBinding
@@ -35,6 +36,7 @@ class SignUpDialog : BaseDialog(R.layout.dialog_sign_up) {
                                     name = nameSignUpField.text.toString()
                                 )
                             )
+                            NavigationHelper.resetMainTabController()
                         } catch (e: Exception) {
                             e.printStackTrace()
                         }

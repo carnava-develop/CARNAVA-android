@@ -22,12 +22,14 @@ import com.carnava.android.user.domain.repositories.UserRepository
 import com.chibatching.kotpref.Kotpref
 import me.aartikov.alligator.AndroidNavigator
 import me.aartikov.alligator.ScreenResolver
+import me.aartikov.alligator.navigationfactories.NavigationFactory
 
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
         navigator = AndroidNavigator(AppNavigationFactory())
         screenResolver = navigator.screenResolver
+        navigationFactory = navigator.navigationFactory
 
         appDatabase = Room.databaseBuilder(this, AppDatabase::class.java, "app_database")
             .build()
@@ -49,6 +51,7 @@ class App : Application() {
     companion object {
         lateinit var navigator: AndroidNavigator
         lateinit var screenResolver: ScreenResolver
+        lateinit var navigationFactory: NavigationFactory
 
         private lateinit var appDatabase: AppDatabase
         private lateinit var userDao: UserDao
