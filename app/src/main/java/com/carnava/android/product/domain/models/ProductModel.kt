@@ -1,12 +1,10 @@
 package com.carnava.android.product.domain.models
 
-import androidx.annotation.DrawableRes
-import com.carnava.android.core.utils.Identification
-
 data class ProductModel(
-    override val id: Int,
-    @DrawableRes val image: Int,
-    val title: String,
-    val price: Double,
-    val isFavorite: Boolean
-) : Identification
+    override val identification: Int,
+    override val title: String,
+    override val image: Int,
+    override val price: Int,
+    override val isCart: Boolean,
+    override val isFavorite: Boolean
+) : Product(identification, title, image, price, isCart, isFavorite)
