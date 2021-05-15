@@ -1,4 +1,6 @@
 package com.carnava.android.search.presentation
 
-class SearchFragment {
+import com.carnava.android.core.ui.BaseFragment
+
+class SearchFragment : BaseFragment() {
 }

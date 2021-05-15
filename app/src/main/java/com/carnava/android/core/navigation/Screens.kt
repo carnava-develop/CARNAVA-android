@@ -22,5 +22,10 @@ object Screens {
 
     object SignIn : Screen, Serializable
     class SignUp(val email: String, val password: String) : Screen, Serializable
+
+    object Home : Screen, Serializable
+    object Search : Screen, Serializable
+    object Cart : Screen, Serializable
+    object Favorite : Screen, Serializable
     object Profile : Screen, Serializable
 }
