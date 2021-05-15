@@ -4,7 +4,7 @@ import com.carnava.android.cart.data.models.CartProductEntity
 import com.carnava.android.product.domain.models.ProductModel
 
 fun CartProductEntity.toProductModel() =
-    ProductModel(identification, title, image, price, isCart = true, isFavorite)
+    ProductModel(identification, title, image, price)
 
 fun List<CartProductEntity>.toProductsModels() = map { it.toProductModel() }
 
@@ -16,8 +16,6 @@ fun ProductModel.toCartProductEntity(userEmail: String) = CartProductEntity(
     title = title,
     image = image,
     price = price,
-    isCart = isCart,
-    isFavorite = isFavorite
 )
 
 fun List<ProductModel>.toCartProductsEntities(userEmail: String) =

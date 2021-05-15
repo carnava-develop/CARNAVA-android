@@ -12,6 +12,6 @@ class CartRepositoryImpl(
 ) : CartRepository {
 
     override fun addProduct(product: ProductModel) {
-        cartDao.insertProduct(product.toCartProductEntity())
+        cartDao.insertProduct(product.toCartProductEntity(authPrefs.email))
     }
 }
