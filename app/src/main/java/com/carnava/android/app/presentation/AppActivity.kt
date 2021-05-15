@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
 import com.carnava.android.App
+import com.carnava.android.R
 import com.carnava.android.auth.domain.usecases.IsSignInUseCase
 import com.carnava.android.core.navigation.Screens
 import com.carnava.android.core.navigation.controllers.NavigationControllerContract
@@ -41,8 +42,13 @@ class AppActivity : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         setContentView(appContainer)
         if (IsSignInUseCase().invoke()) {
+            App.navigator.reset(
+                Screens.TabNavigationController(
+                    menuId = R.menu.main_bottom_navigation,
+                )
+            )
         } else {
-            App.navigator.goForward(Screens.SignIn)
+            App.navigator.reset(Screens.SignIn)
         }
     }
 
