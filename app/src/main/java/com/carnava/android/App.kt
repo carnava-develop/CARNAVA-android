@@ -9,6 +9,9 @@ import com.carnava.android.auth.domain.repository.AuthRepository
 import com.carnava.android.cart.data.local.CartDao
 import com.carnava.android.cart.data.repository.CartRepositoryImpl
 import com.carnava.android.cart.domain.repository.CartRepository
+import com.carnava.android.category.data.local.CategoryDao
+import com.carnava.android.category.data.repository.CategoryRepositoryImpl
+import com.carnava.android.category.domain.repository.CategoryRepository
 import com.carnava.android.core.navigation.AppNavigationFactory
 import com.carnava.android.core.utils.EventBus
 import com.carnava.android.favorite.data.local.FavoriteDao
@@ -35,6 +38,7 @@ class App : Application() {
         appDatabase = Room.databaseBuilder(this, AppDatabase::class.java, "app_database")
             .build()
         userDao = appDatabase.userDao()
+        categoryDao = appDatabase.categoryDao()
         productDao = appDatabase.productDao()
         cartDao = appDatabase.cartDao()
         favoriteDao = appDatabase.favoriteDao()
@@ -43,6 +47,8 @@ class App : Application() {
         authPrefs = AuthPrefs()
 
         eventBus = EventBus()
+
+        categoryRepository = CategoryRepositoryImpl(categoryDao)
         userRepository = UserRepositoryImpl(userDao)
         authRepository = AuthRepositoryImpl(authPrefs)
         productRepository = ProductRepositoryImpl(productDao)
@@ -57,6 +63,7 @@ class App : Application() {
 
         private lateinit var appDatabase: AppDatabase
         private lateinit var userDao: UserDao
+        private lateinit var categoryDao: CategoryDao
         private lateinit var productDao: ProductDao
         private lateinit var cartDao: CartDao
         private lateinit var favoriteDao: FavoriteDao
@@ -64,6 +71,8 @@ class App : Application() {
         private lateinit var authPrefs: AuthPrefs
 
         lateinit var eventBus: EventBus
+
+        lateinit var categoryRepository: CategoryRepository
         lateinit var userRepository: UserRepository
         lateinit var authRepository: AuthRepository
         lateinit var productRepository: ProductRepository
