@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
+import androidx.lifecycle.lifecycleScope
 import com.carnava.android.App
+import com.carnava.android.app.domain.utils.AppDataBaseInit
 import com.carnava.android.auth.domain.usecases.IsSignInUseCase
 import com.carnava.android.core.navigation.NavigationHelper
 import com.carnava.android.core.navigation.Screens
@@ -16,6 +18,8 @@ import com.carnava.android.core.navigation.controllers.TabNavigationControllerCo
 import com.carnava.android.core.navigation.global.ContainerProvider
 import com.carnava.android.core.navigation.global.NavigationContextChangerProvider
 import com.carnava.android.core.navigation.global.NavigationScreenSwitcherProvider
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import me.aartikov.alligator.NavigationContext
 import me.aartikov.alligator.NavigationContextBinder
 import me.aartikov.alligator.navigationfactories.NavigationFactory
@@ -41,6 +45,9 @@ class AppActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(appContainer)
+        lifecycleScope.launch(Dispatchers.IO) {
+            AppDataBaseInit.initCategories()
+        }
         if (IsSignInUseCase().invoke()) NavigationHelper.resetMainTabController()
         else App.navigator.reset(Screens.SignIn)
     }

@@ -8,15 +8,15 @@ import com.carnava.android.category.domain.repository.CategoryRepository
 
 class CategoryRepositoryImpl(private val categoryDao: CategoryDao) : CategoryRepository {
 
-    override fun loadCategories(): List<CategoryModel> {
+    override suspend fun loadCategories(): List<CategoryModel> {
         return categoryDao.selectAllCategories().toCategoriesModels()
     }
 
-    override fun loadCategories(baseCategory: Int): List<CategoryModel> {
+    override suspend fun loadCategories(baseCategory: Int): List<CategoryModel> {
         return categoryDao.selectCategories(baseCategory).toCategoriesModels()
     }
 
-    override fun saveCategory(categoryModel: CategoryModel) {
+    override suspend fun saveCategory(categoryModel: CategoryModel) {
         categoryDao.insertCategory(categoryModel.toCategoryEntity())
     }
 }

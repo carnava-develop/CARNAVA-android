@@ -10,11 +10,11 @@ import com.carnava.android.category.data.models.CategoryEntity
 interface CategoryDao {
 
     @Query("SELECT * FROM categories")
-    fun selectAllCategories(): List<CategoryEntity>
+    suspend fun selectAllCategories(): List<CategoryEntity>
 
     @Query("SELECT * FROM categories WHERE base_category = :baseCategory")
-    fun selectCategories(baseCategory: Int): List<CategoryEntity>
+    suspend fun selectCategories(baseCategory: Int): List<CategoryEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertCategory(category: CategoryEntity)
+    suspend fun insertCategory(category: CategoryEntity)
 }

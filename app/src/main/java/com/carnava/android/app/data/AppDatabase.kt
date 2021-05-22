@@ -5,6 +5,7 @@ import androidx.room.RoomDatabase
 import com.carnava.android.cart.data.local.CartDao
 import com.carnava.android.cart.data.models.CartProductEntity
 import com.carnava.android.category.data.local.CategoryDao
+import com.carnava.android.category.data.models.CategoryEntity
 import com.carnava.android.favorite.data.local.FavoriteDao
 import com.carnava.android.favorite.data.models.FavoriteProductEntity
 import com.carnava.android.product.data.local.ProductDao
@@ -18,7 +19,7 @@ import com.carnava.android.user.data.model.UserEntity
         ProductEntity::class,
         CartProductEntity::class,
         FavoriteProductEntity::class,
-        CartProductEntity::class
+        CategoryEntity::class
     ],
     version = 1,
     exportSchema = false
