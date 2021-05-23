@@ -11,7 +11,11 @@ class CartRepositoryImpl(
     private val authPrefs: AuthPrefs
 ) : CartRepository {
 
-    override fun addProduct(product: ProductModel) {
+    override suspend fun addProduct(product: ProductModel) {
         cartDao.insertProduct(product.toCartProductEntity(authPrefs.email))
+    }
+
+    override suspend fun removeProduct(product: ProductModel) {
+        cartDao.deleteProduct(product.toCartProductEntity(authPrefs.email))
     }
 }

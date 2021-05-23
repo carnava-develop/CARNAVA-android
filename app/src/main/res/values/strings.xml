@@ -18,5 +18,7 @@
     <string name="item_product_add_to_cart">Добавить в корзину</string>
 
     <string name="search_hint">Поиск</string>
+    <string name="cart_place_an_order">Оформить заказ</string>
+    <string name="cart_remove">Убрать</string>
 
 </resources>
