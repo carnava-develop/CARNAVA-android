@@ -1,12 +1,12 @@
 package com.carnava.android.search.domain
 
-import com.carnava.android.product.data.models.ProductEntity
-import com.carnava.android.product.domain.repositories.ProductRepository
+import com.carnava.android.App
+import com.carnava.android.product.domain.models.ProductModel
 
-class SearchUseCase(private val productRepository: ProductRepository) {
+class SearchUseCase {
 
-    suspend operator fun invoke(query: String): List<ProductEntity> {
-        val products = productRepository.loadAllProducts()
+    suspend operator fun invoke(query: String): List<ProductModel> {
+        val products = App.productRepository.loadAllProducts()
         return products.filter { query.contains(query, true) }
     }
 }
