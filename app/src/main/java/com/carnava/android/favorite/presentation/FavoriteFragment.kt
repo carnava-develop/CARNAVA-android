@@ -11,6 +11,7 @@ import com.carnava.android.databinding.FragmentFavoriteBinding
 import com.carnava.android.favorite.domain.usecases.LoadFavoritesProductsUseCase
 import com.carnava.android.favorite.domain.usecases.RemoveFromFavoriteUseCase
 import com.carnava.android.product.domain.models.ProductModel
+import com.carnava.android.product.presentation.ProductAdapter
 import kotlinx.coroutines.launch
 
 class FavoriteFragment : BaseFragment(R.layout.fragment_favorite) {
@@ -27,7 +28,7 @@ class FavoriteFragment : BaseFragment(R.layout.fragment_favorite) {
                 idAction = EventBus.Events.ADD_FAVORITE
             ) { product ->
                 favorites.add(product)
-                (favoriteProductsList.adapter as? FavoriteProductsAdapter)
+                (favoriteProductsList.adapter as? ProductAdapter)
                     ?.submitList(favorites)
             }
 
@@ -36,18 +37,19 @@ class FavoriteFragment : BaseFragment(R.layout.fragment_favorite) {
                 idAction = EventBus.Events.REMOVE_FAVORITE
             ) { product ->
                 favorites.remove(product)
-                (favoriteProductsList.adapter as? FavoriteProductsAdapter)
+                (favoriteProductsList.adapter as? ProductAdapter)
                     ?.submitList(favorites)
             }
 
 
-            favoriteProductsList.adapter = FavoriteProductsAdapter(
+            favoriteProductsList.adapter = ProductAdapter(
                 addToCartClickListener = {
                     AddProductInCartUseCase().invoke(it)
-                }, favoriteClickListener = {
+                },
+                favoriteClickListener = { product, check ->
                     lifecycleScope.launch {
                         try {
-                            RemoveFromFavoriteUseCase().invoke(it)
+                            RemoveFromFavoriteUseCase().invoke(product)
                         } catch (e: Exception) {
                             e.printStackTrace()
                         }
@@ -57,7 +59,7 @@ class FavoriteFragment : BaseFragment(R.layout.fragment_favorite) {
 
             lifecycleScope.launch {
                 favorites = LoadFavoritesProductsUseCase().invoke().toMutableList()
-                (favoriteProductsList.adapter as? FavoriteProductsAdapter)
+                (favoriteProductsList.adapter as? ProductAdapter)
                     ?.submitList(favorites)
             }
         }

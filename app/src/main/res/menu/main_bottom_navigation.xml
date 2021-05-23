@@ -8,7 +8,7 @@
         tools:ignore="MenuTitle" />
     <item
         android:id="@+id/item_search"
-        android:icon="@drawable/ic_search"
+        android:icon="@drawable/ic_search_white"
         tools:ignore="MenuTitle" />
     <item
         android:id="@+id/item_cart"
