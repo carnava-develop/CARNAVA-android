@@ -54,8 +54,8 @@ class CartFragment : BaseFragment(R.layout.fragment_cart) {
             App.eventBus.setEventListener<ProductModel>(
                 this,
                 EventBus.Events.REMOVE_FAVORITE
-            ) {
-                cart[cart.indexOf(it)] = it
+            ) { product ->
+                cart[cart.indexOfFirst { it.identification == product.identification }] = product
                 (productsCartList.adapter as? CartAdapter)
                     ?.submitList(cart)
             }
