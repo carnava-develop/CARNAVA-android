@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
 import androidx.lifecycle.lifecycleScope
 import com.carnava.android.App
-import com.carnava.android.app.domain.utils.AppDataBaseInit
+import com.carnava.android.app.domain.utils.DatabaseCategoryInit
+import com.carnava.android.app.domain.utils.DatabasePrefs
+import com.carnava.android.app.domain.utils.DatabaseProductInit
 import com.carnava.android.auth.domain.usecases.IsSignInUseCase
 import com.carnava.android.core.navigation.NavigationHelper
 import com.carnava.android.core.navigation.Screens
@@ -45,8 +47,11 @@ class AppActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(appContainer)
-        lifecycleScope.launch(Dispatchers.IO) {
-            AppDataBaseInit.initCategories()
+        if (!DatabasePrefs.isInitDatabase) {
+            lifecycleScope.launch(Dispatchers.IO) {
+                DatabaseCategoryInit.invoke()
+                DatabaseProductInit.invoke()
+            }
         }
         if (IsSignInUseCase().invoke()) NavigationHelper.resetMainTabController()
         else App.navigator.reset(Screens.SignIn)

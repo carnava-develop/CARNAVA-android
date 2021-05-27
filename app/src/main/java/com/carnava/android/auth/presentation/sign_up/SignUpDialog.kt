@@ -36,6 +36,7 @@ class SignUpDialog : BaseDialog(R.layout.dialog_sign_up) {
                                     name = nameSignUpField.text.toString()
                                 )
                             )
+                            App.navigator.goBack()
                             NavigationHelper.resetMainTabController()
                         } catch (e: Exception) {
                             e.printStackTrace()

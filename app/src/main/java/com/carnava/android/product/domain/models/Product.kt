@@ -4,6 +4,7 @@ import com.carnava.android.core.utils.Identification
 
 abstract class Product(
     override val identification: Int,
+    open val idCategory: Int,
     open val title: String,
     open val image: Int,
     open val price: Int,

@@ -4,5 +4,5 @@ import com.carnava.android.App
 import com.carnava.android.product.domain.models.ProductModel
 
 class AddProductInCartUseCase {
-    operator fun invoke(product: ProductModel) = App.cartRepository.addProduct(product)
+    suspend operator fun invoke(product: ProductModel) = App.cartRepository.addProduct(product)
 }

@@ -9,10 +9,11 @@ import com.carnava.android.product.domain.models.Product
 data class CartProductEntity(
     @ColumnInfo(name = "id") @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "user_email") val userEmail: String,
+    @ColumnInfo(name = "id_category") override val idCategory: Int,
     @ColumnInfo(name = "identification") override val identification: Int,
     @ColumnInfo(name = "title") override val title: String,
     @ColumnInfo(name = "image") override val image: Int,
     @ColumnInfo(name = "price") override val price: Int,
     @ColumnInfo(name = "is_cart") override val isCart: Boolean,
     @ColumnInfo(name = "is_favorite") override val isFavorite: Boolean,
-) : Product(identification, title, image, price, isCart, isFavorite)
+) : Product(identification, idCategory, title, image, price, isCart, isFavorite)

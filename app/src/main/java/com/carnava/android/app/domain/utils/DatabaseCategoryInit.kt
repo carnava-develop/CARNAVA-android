@@ -4,8 +4,8 @@ import com.carnava.android.App
 import com.carnava.android.R
 import com.carnava.android.category.domain.models.CategoryModel
 
-object AppDataBaseInit {
-    suspend fun initCategories() {
+object DatabaseCategoryInit {
+    suspend operator fun invoke() {
         val categories = listOf(
             CategoryModel(0, "Одежда", image = R.drawable.ic_logo),
             CategoryModel(1, "Футболки", 0),

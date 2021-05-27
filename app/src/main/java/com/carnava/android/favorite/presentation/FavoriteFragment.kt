@@ -44,7 +44,9 @@ class FavoriteFragment : BaseFragment(R.layout.fragment_favorite) {
 
             favoriteProductsList.adapter = ProductAdapter(
                 addToCartClickListener = {
-                    AddProductInCartUseCase().invoke(it)
+                    lifecycleScope.launch {
+                        AddProductInCartUseCase().invoke(it)
+                    }
                 },
                 favoriteClickListener = { product, check ->
                     lifecycleScope.launch {
