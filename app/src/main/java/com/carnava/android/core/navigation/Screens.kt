@@ -24,6 +24,7 @@ object Screens {
     class SignUp(val email: String, val password: String) : Screen, Serializable
 
     object Home : Screen, Serializable
+    class Catalog(val idCategory: Int) : Screen, Serializable
     object Search : Screen, Serializable
     object Cart : Screen, Serializable
     object Favorite : Screen, Serializable

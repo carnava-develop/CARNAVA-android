@@ -14,4 +14,7 @@ interface ProductDao {
 
     @Query("SELECT * FROM products")
     suspend fun loadAllProducts(): List<ProductEntity>
+
+    @Query("SELECT * FROM products WHERE id_category = :idCategory")
+    suspend fun loadProductsByCategory(idCategory: Int): List<ProductEntity>
 }

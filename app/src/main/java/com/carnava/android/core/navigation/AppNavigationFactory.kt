@@ -4,6 +4,7 @@ import com.carnava.android.app.presentation.AppActivity
 import com.carnava.android.auth.presentation.sign_in.SignInFragment
 import com.carnava.android.auth.presentation.sign_up.SignUpDialog
 import com.carnava.android.cart.presentation.CartFragment
+import com.carnava.android.catalog.presentation.CatalogFragment
 import com.carnava.android.core.navigation.fragment_controllers.NavigationControllerFragment
 import com.carnava.android.core.navigation.fragment_controllers.TabNavigationControllerFragment
 import com.carnava.android.favorite.presentation.FavoriteFragment
@@ -28,6 +29,7 @@ class AppNavigationFactory : RegistryNavigationFactory() {
         registerDialogFragment(Screens.SignUp::class.java, SignUpDialog::class.java)
 
         registerFragment(Screens.Home::class.java, HomeFragment::class.java)
+        registerFragment(Screens.Catalog::class.java, CatalogFragment::class.java)
         registerFragment(Screens.Search::class.java, SearchFragment::class.java)
         registerFragment(Screens.Cart::class.java, CartFragment::class.java)
         registerFragment(Screens.Favorite::class.java, FavoriteFragment::class.java)
