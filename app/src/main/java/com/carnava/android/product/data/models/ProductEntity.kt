@@ -8,7 +8,6 @@ import com.carnava.android.product.domain.models.Product
 @Entity(tableName = "products")
 data class ProductEntity(
     @ColumnInfo(name = "identification") @PrimaryKey override val identification: Int,
-    @ColumnInfo(name = "user_email") val userEmail: String,
     @ColumnInfo(name = "id_category") override val idCategory: Int,
     @ColumnInfo(name = "title") override val title: String,
     @ColumnInfo(name = "image") override val image: Int,

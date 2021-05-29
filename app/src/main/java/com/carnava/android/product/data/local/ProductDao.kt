@@ -9,7 +9,7 @@ import com.carnava.android.product.data.models.ProductEntity
 @Dao
 interface ProductDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertProduct(productEntity: ProductEntity)
 
     @Query("SELECT * FROM products")
