@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.lifecycleScope
 import com.carnava.android.App
 import com.carnava.android.R
+import com.carnava.android.cart.domain.usecases.AddProductInCartUseCase
 import com.carnava.android.core.extensions.toDpInt
 import com.carnava.android.core.navigation.Screens
 import com.carnava.android.core.ui.BaseFragment
@@ -31,7 +32,9 @@ class CatalogFragment : BaseFragment(R.layout.fragment_catalog) {
     private val productAdapter by lazy {
         ProductAdapter(
             addToCartClickListener = {
-
+                lifecycleScope.launch {
+                    AddProductInCartUseCase().invoke(it)
+                }
             },
             favoriteClickListener = { product, check ->
                 lifecycleScope.launch {
@@ -47,9 +50,10 @@ class CatalogFragment : BaseFragment(R.layout.fragment_catalog) {
         App.eventBus.setEventListener<ProductModel>(
             idObserver = this@CatalogFragment,
             idAction = EventBus.Events.ADD_FAVORITE
-        ) {
+        ) { product ->
             try {
-                products[products.indexOf(it)] = it.copy(isFavorite = true)
+                val index = products.indexOfFirst { it.identification == product.identification }
+                products[index] = product.copy(isFavorite = true)
             } catch (e: IndexOutOfBoundsException) {
                 Timber.e(e)
             }
@@ -58,9 +62,10 @@ class CatalogFragment : BaseFragment(R.layout.fragment_catalog) {
         App.eventBus.setEventListener<ProductModel>(
             idObserver = this@CatalogFragment,
             idAction = EventBus.Events.REMOVE_FAVORITE
-        ) {
+        ) { product ->
             try {
-                products[products.indexOf(it)] = it.copy(isFavorite = false)
+                val index = products.indexOfFirst { it.identification == product.identification }
+                products[index] = product.copy(isFavorite = false)
             } catch (e: IndexOutOfBoundsException) {
                 Timber.e(e)
             }
