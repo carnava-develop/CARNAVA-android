@@ -29,6 +29,7 @@ class CatalogFragment : BaseFragment(R.layout.fragment_catalog) {
     private val products = mutableListOf<ProductModel>()
 
     private lateinit var binding: FragmentCatalogBinding
+    private val catalogItemDecoration by lazy { SpaceItemDecoration(16.toDpInt()) }
     private val productAdapter by lazy {
         ProductAdapter(
             addToCartClickListener = {
@@ -76,7 +77,7 @@ class CatalogFragment : BaseFragment(R.layout.fragment_catalog) {
     override fun setupView(view: View) {
         binding = FragmentCatalogBinding.bind(view)
         with(binding) {
-            productsCatalogList.addItemDecoration(SpaceItemDecoration(16.toDpInt()))
+            productsCatalogList.addItemDecoration(catalogItemDecoration)
             productsCatalogList.adapter = productAdapter
 
             if (products.isEmpty()) {
@@ -94,9 +95,16 @@ class CatalogFragment : BaseFragment(R.layout.fragment_catalog) {
         }
     }
 
+    override fun onDestroyView() {
+        with(binding) {
+            productsCatalogList.removeItemDecoration(catalogItemDecoration)
+            productsCatalogList.adapter = null
+        }
+        super.onDestroyView()
+    }
+
     override fun onDestroy() {
         App.eventBus.removeEventListeners(this)
-        binding.productsCatalogList.adapter = null
         super.onDestroy()
     }
 }
