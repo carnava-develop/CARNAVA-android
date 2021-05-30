@@ -6,4 +6,5 @@ interface CartRepository {
     abstract suspend fun addProduct(product: ProductModel)
     suspend fun removeProduct(product: ProductModel)
     suspend fun clearCart()
+    suspend fun loadCart(): List<ProductModel>
 }

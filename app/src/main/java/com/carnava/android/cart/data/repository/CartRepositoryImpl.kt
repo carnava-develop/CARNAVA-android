@@ -4,6 +4,7 @@ import com.carnava.android.auth.data.local.AuthPrefs
 import com.carnava.android.cart.data.local.CartDao
 import com.carnava.android.cart.domain.repository.CartRepository
 import com.carnava.android.product.domain.mappers.toCartProductEntity
+import com.carnava.android.product.domain.mappers.toProductsModels
 import com.carnava.android.product.domain.models.ProductModel
 
 class CartRepositoryImpl(
@@ -21,5 +22,9 @@ class CartRepositoryImpl(
 
     override suspend fun clearCart() {
         cartDao.loadAllProduct().forEach { cartDao.deleteProduct(it) }
+    }
+
+    override suspend fun loadCart(): List<ProductModel> {
+        return cartDao.loadAllProduct().toProductsModels()
     }
 }

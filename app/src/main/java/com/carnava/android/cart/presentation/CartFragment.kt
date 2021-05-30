@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.lifecycleScope
 import com.carnava.android.App
 import com.carnava.android.R
+import com.carnava.android.cart.domain.usecases.LoadCartUseCase
 import com.carnava.android.cart.domain.usecases.RemoveProductFromCartUseCase
 import com.carnava.android.core.extensions.requireNavigationContextChanger
 import com.carnava.android.core.extensions.toDpInt
@@ -115,6 +116,13 @@ class CartFragment : BaseFragment(R.layout.fragment_cart) {
             placeAnOrderCartButton.setOnClickListener {
                 requireNavigationContextChanger().resetNavigationContext()
                 App.navigator.goForward(Screens.CreateOrder)
+            }
+
+            if (cart.isEmpty()) {
+                lifecycleScope.launch {
+                    cart.addAll(LoadCartUseCase().invoke())
+                    cartAdapter.submitList(cart)
+                }
             }
         }
     }
