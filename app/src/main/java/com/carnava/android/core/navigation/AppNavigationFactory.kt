@@ -9,6 +9,7 @@ import com.carnava.android.core.navigation.fragment_controllers.NavigationContro
 import com.carnava.android.core.navigation.fragment_controllers.TabNavigationControllerFragment
 import com.carnava.android.favorite.presentation.FavoriteFragment
 import com.carnava.android.home.presentation.HomeFragment
+import com.carnava.android.order.presentation.create_order.CreateOrderFragment
 import com.carnava.android.search.presentation.SearchFragment
 import com.carnava.android.user.presentation.profile.ProfileFragment
 import me.aartikov.alligator.navigationfactories.RegistryNavigationFactory
@@ -30,9 +31,15 @@ class AppNavigationFactory : RegistryNavigationFactory() {
 
         registerFragment(Screens.Home::class.java, HomeFragment::class.java)
         registerFragment(Screens.Catalog::class.java, CatalogFragment::class.java)
+
         registerFragment(Screens.Search::class.java, SearchFragment::class.java)
+
         registerFragment(Screens.Cart::class.java, CartFragment::class.java)
+
+        registerFragment(Screens.CreateOrder::class.java, CreateOrderFragment::class.java)
+
         registerFragment(Screens.Favorite::class.java, FavoriteFragment::class.java)
+
         registerFragment(Screens.Profile::class.java, ProfileFragment::class.java)
     }
 }

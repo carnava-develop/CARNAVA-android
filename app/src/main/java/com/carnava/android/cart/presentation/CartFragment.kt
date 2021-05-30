@@ -6,7 +6,9 @@ import androidx.lifecycle.lifecycleScope
 import com.carnava.android.App
 import com.carnava.android.R
 import com.carnava.android.cart.domain.usecases.RemoveProductFromCartUseCase
+import com.carnava.android.core.extensions.requireNavigationContextChanger
 import com.carnava.android.core.extensions.toDpInt
+import com.carnava.android.core.navigation.Screens
 import com.carnava.android.core.ui.BaseFragment
 import com.carnava.android.core.ui.SpaceItemDecoration
 import com.carnava.android.core.utils.EventBus
@@ -68,6 +70,17 @@ class CartFragment : BaseFragment(R.layout.fragment_cart) {
                 Timber.e(e)
             }
         }
+        App.eventBus.setEventListener<Unit>(
+            this,
+            EventBus.Events.CLEAR_CART
+        ) {
+            try {
+                cart.clear()
+                cartAdapter.submitList(cart)
+            } catch (e: IndexOutOfBoundsException) {
+                Timber.e(e)
+            }
+        }
         App.eventBus.setEventListener<ProductModel>(
             this,
             EventBus.Events.ADD_FAVORITE
@@ -99,6 +112,10 @@ class CartFragment : BaseFragment(R.layout.fragment_cart) {
         with(binding) {
             productsCartList.addItemDecoration(cartItemDecoration)
             productsCartList.adapter = cartAdapter
+            placeAnOrderCartButton.setOnClickListener {
+                requireNavigationContextChanger().resetNavigationContext()
+                App.navigator.goForward(Screens.CreateOrder)
+            }
         }
     }
 

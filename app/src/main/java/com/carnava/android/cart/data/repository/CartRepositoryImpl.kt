@@ -18,4 +18,8 @@ class CartRepositoryImpl(
     override suspend fun removeProduct(product: ProductModel) {
         cartDao.deleteProduct(product.toCartProductEntity(authPrefs.email))
     }
+
+    override suspend fun clearCart() {
+        cartDao.loadAllProduct().forEach { cartDao.deleteProduct(it) }
+    }
 }

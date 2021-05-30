@@ -20,5 +20,10 @@
     <string name="search_hint">Поиск</string>
     <string name="cart_place_an_order">Оформить заказ</string>
     <string name="cart_remove">Убрать</string>
+    <string name="create_order_input_data">Введите данные:</string>
+    <string name="create_order_address_hint">Адрес: (город,улица проживания,почтовый индекс)</string>
+    <string name="create_order_phone_hint">Номер телефона</string>
+    <string name="create_order_place_order">Оформить</string>
+    <string name="create_order_place_order_success">Заказ успешно оформлен</string>
 
 </resources>

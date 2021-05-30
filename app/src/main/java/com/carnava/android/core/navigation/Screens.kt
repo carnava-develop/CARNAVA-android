@@ -25,8 +25,14 @@ object Screens {
 
     object Home : Screen, Serializable
     class Catalog(val idCategory: Int) : Screen, Serializable
+
     object Search : Screen, Serializable
+
     object Cart : Screen, Serializable
+
+    object CreateOrder : Screen, Serializable
+
     object Favorite : Screen, Serializable
+
     object Profile : Screen, Serializable
 }

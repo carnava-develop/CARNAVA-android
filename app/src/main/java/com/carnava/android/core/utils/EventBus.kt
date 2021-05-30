@@ -73,6 +73,6 @@ class EventBus {
 
     enum class Events {
         ADD_FAVORITE, REMOVE_FAVORITE,
-        ADD_TO_CART, REMOVE_FROM_CART
+        ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART
     }
 }
