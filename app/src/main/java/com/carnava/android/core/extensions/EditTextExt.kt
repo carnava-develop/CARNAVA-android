@@ -2,6 +2,7 @@ package com.carnava.android.core.extensions
 
 import android.app.Activity
 import android.content.Context
+import android.text.InputType
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -17,6 +18,8 @@ fun EditText.clearError() {
 }
 
 fun EditText.setDoneClickListener(clickListener: (EditText) -> Unit) {
+    inputType = InputType.TYPE_CLASS_TEXT
+    imeOptions = EditorInfo.IME_ACTION_DONE
     setOnEditorActionListener { _, actionId, event ->
         if (event != null && event.keyCode == KeyEvent.KEYCODE_ENTER || actionId == EditorInfo.IME_ACTION_DONE) {
             clickListener.invoke(this)

@@ -7,6 +7,12 @@ class SearchUseCase {
 
     suspend operator fun invoke(query: String): List<ProductModel> {
         val products = App.productRepository.loadAllProducts()
-        return products.filter { query.contains(query, true) }
+        val favorites = App.favoriteRepository.loadProducts()
+        val searchResult = products.filter { it.title.contains(query, true) }
+        val result = mutableListOf<ProductModel>()
+        searchResult.forEach { product ->
+            result.add(favorites.find { it.identification == product.identification } ?: product)
+        }
+        return result
     }
 }
