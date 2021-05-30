@@ -12,7 +12,7 @@ interface FavoriteDao {
     @Query("SELECT * FROM favorites WHERE user_email = :emailUser ")
     suspend fun loadProducts(emailUser: String): List<FavoriteProductEntity>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveProduct(productEntity: FavoriteProductEntity)
 
     @Query("DELETE FROM favorites WHERE identification = :identification AND user_email = :userEmail")

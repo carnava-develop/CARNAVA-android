@@ -18,7 +18,7 @@ fun ProductModel.toFavoriteProductEntity(userEmail: String) = FavoriteProductEnt
     image = image,
     price = price,
     isCart = isCart,
-    isFavorite = isFavorite
+    isFavorite = true
 )
 
 fun List<ProductModel>.toFavoritesProductsEntities(userEmail: String) =
