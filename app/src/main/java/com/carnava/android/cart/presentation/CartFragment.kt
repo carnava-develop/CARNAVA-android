@@ -52,30 +52,45 @@ class CartFragment : BaseFragment(R.layout.fragment_cart) {
         App.eventBus.setEventListener<ProductModel>(
             this,
             EventBus.Events.ADD_TO_CART
-        ) {
-            cart.add(it)
+        ) { product ->
+            cart.add(product)
             cartAdapter.submitList(cart)
         }
         App.eventBus.setEventListener<ProductModel>(
             this,
             EventBus.Events.REMOVE_FROM_CART
-        ) {
-            cart.remove(it)
-            cartAdapter.submitList(cart)
+        ) { product ->
+            try {
+                val index = cart.indexOfFirst { it.identification == product.identification }
+                cart.removeAt(index)
+                cartAdapter.submitList(cart)
+            } catch (e: IndexOutOfBoundsException) {
+                Timber.e(e)
+            }
         }
         App.eventBus.setEventListener<ProductModel>(
             this,
             EventBus.Events.ADD_FAVORITE
-        ) {
-            cart[cart.indexOf(it)] = it
-            cartAdapter.submitList(cart)
+        ) { product ->
+            try {
+                val index = cart.indexOfFirst { it.identification == product.identification }
+                cart[index] = product.copy(isFavorite = true)
+                cartAdapter.submitList(cart)
+            } catch (e: IndexOutOfBoundsException) {
+                Timber.e(e)
+            }
         }
         App.eventBus.setEventListener<ProductModel>(
             this,
             EventBus.Events.REMOVE_FAVORITE
         ) { product ->
-            cart[cart.indexOfFirst { it.identification == product.identification }] = product
-            cartAdapter.submitList(cart)
+            try {
+                val index = cart.indexOfFirst { it.identification == product.identification }
+                cart[index] = product.copy(isFavorite = false)
+                cartAdapter.submitList(cart)
+            } catch (e: IndexOutOfBoundsException) {
+                Timber.e(e)
+            }
         }
     }
 
