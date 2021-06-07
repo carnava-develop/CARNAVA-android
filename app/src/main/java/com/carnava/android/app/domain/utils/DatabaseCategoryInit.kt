@@ -19,7 +19,7 @@ object DatabaseCategoryInit {
             CategoryModel(9, "Верхняя одежда", image = R.drawable.ic_logo),
             CategoryModel(10, "Куртки", 9),
             CategoryModel(11, "Пальто", 9),
-            CategoryModel(12, "Пиджак", 9),
+            CategoryModel(12, "Пиджаки", 9),
             CategoryModel(13, "Обувь", image = R.drawable.ic_logo),
             CategoryModel(14, "Сандалии", 13),
             CategoryModel(15, "Туфли", 13),
