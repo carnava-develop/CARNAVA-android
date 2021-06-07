@@ -6,6 +6,7 @@ import androidx.lifecycle.lifecycleScope
 import com.carnava.android.App
 import com.carnava.android.R
 import com.carnava.android.auth.domain.usecases.SignInUseCase
+import com.carnava.android.core.extensions.isEmailValid
 import com.carnava.android.core.navigation.NavigationHelper
 import com.carnava.android.core.navigation.Screens
 import com.carnava.android.core.ui.BaseFragment
@@ -22,6 +23,27 @@ class SignInFragment : BaseFragment(R.layout.fragment_sign_in) {
             emailSignInField.doAfterTextChanged { emailSignInField.error = null }
             passwordSignInField.doAfterTextChanged { passwordSignInField.error = null }
             signInButton.setOnClickListener {
+                when {
+                    emailSignInField.text.isBlank() -> {
+                        emailSignInField.error =
+                            getString(R.string.error_fill_in_the_required_field)
+                    }
+                    !emailSignInField.text.toString().isEmailValid() -> {
+                        emailSignInField.error =
+                            getString(R.string.error_email_is_not_correct)
+                    }
+                }
+
+                if (passwordSignInField.text.isBlank()) {
+                    passwordSignInField.error =
+                        getString(R.string.error_fill_in_the_required_field)
+                }
+
+                if (passwordSignInField.text.isBlank()
+                    || emailSignInField.text.isBlank()
+                    || !emailSignInField.text.toString().isEmailValid()
+                ) return@setOnClickListener
+
                 lifecycleScope.launch {
                     try {
                         SignInUseCase().invoke(
@@ -35,12 +57,27 @@ class SignInFragment : BaseFragment(R.layout.fragment_sign_in) {
                 }
             }
             signUpSignInButton.setOnClickListener {
-                if (emailSignInField.text.isBlank()) {
-                    emailSignInField.error = getString(R.string.error_fill_in_the_required_field)
+                when {
+                    emailSignInField.text.isBlank() -> {
+                        emailSignInField.error =
+                            getString(R.string.error_fill_in_the_required_field)
+                    }
+                    !emailSignInField.text.toString().isEmailValid() -> {
+                        emailSignInField.error =
+                            getString(R.string.error_email_is_not_correct)
+                    }
                 }
+
                 if (passwordSignInField.text.isBlank()) {
-                    passwordSignInField.error = getString(R.string.error_fill_in_the_required_field)
+                    passwordSignInField.error =
+                        getString(R.string.error_fill_in_the_required_field)
                 }
+
+                if (passwordSignInField.text.isBlank()
+                    || emailSignInField.text.isBlank()
+                    || !emailSignInField.text.toString().isEmailValid()
+                ) return@setOnClickListener
+
                 if (emailSignInField.text.isNotBlank() && passwordSignInField.text.isNotBlank()) {
                     App.navigator.goForward(
                         Screens.SignUp(

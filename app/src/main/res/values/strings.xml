@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">CARNAVA</string>
     <string name="error_fill_in_the_required_field">Заполните обязательное поле</string>
+    <string name="error_email_is_not_correct">Почта не корректная</string>
 
     <string name="sign_in_email">Email</string>
     <string name="sign_in_password">Пароль</string>
