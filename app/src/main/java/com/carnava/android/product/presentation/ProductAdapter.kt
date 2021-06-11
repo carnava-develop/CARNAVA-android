@@ -38,6 +38,8 @@ class ProductAdapter(
             with(binding) {
                 currentItem = item
                 titleItemProductText.text = item.title
+                priceItemProductText.text =
+                    ctx.getString(R.string.ruble_postfix, item.price.toString())
                 Glide.with(ctx).load(item.image).into(imageItemProduct)
                 Glide.with(ctx).load(
                     if (item.isFavorite) ctx.drawable(R.drawable.ic_favorite_active)

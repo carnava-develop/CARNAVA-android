@@ -39,6 +39,7 @@ class CategoryAdapter(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 250.toDpInt(),
             )
+            scaleType = ImageView.ScaleType.CENTER_CROP
         }
     ) {
         override fun bind(item: CategoryModel) {
